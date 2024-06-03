@@ -24,24 +24,24 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false; // Виключення модуля 'fs' на клієнтській стороні
-    }
+  // webpack: (config, { isServer }) => {
+  //   if (!isServer) {
+  //     config.resolve.fallback.fs = false; // Виключення модуля 'fs' на клієнтській стороні
+  //   }
 
-    // Додавання компресії Brotli
-    config.plugins.push(new CompressionPlugin({
-      filename: '[path][base].br',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: { level: 11 },
-      threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: false,
-    }));
+  //   // Додавання компресії Brotli
+  //   config.plugins.push(new CompressionPlugin({
+  //     filename: '[path][base].br',
+  //     algorithm: 'brotliCompress',
+  //     test: /\.(js|css|html|svg)$/,
+  //     compressionOptions: { level: 11 },
+  //     threshold: 10240,
+  //     minRatio: 0.8,
+  //     deleteOriginalAssets: false,
+  //   }));
 
-    return config;
-  },
+  //   return config;
+  // },
   
 
  // Оптимізація кешування і служби доставки контенту

@@ -45,8 +45,8 @@ export default function BreakpointsWrapper({children}: Readonly<{children: React
   //console.log(propss.ser);
   
   return (
-      < >
-        {children },
+      <>
+        {children}
       </>
     );
 };

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProLaboratoriyuLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

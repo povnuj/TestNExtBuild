@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function PromotionsLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

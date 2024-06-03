@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function AnalizyTaPoslugyLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

@@ -5,7 +5,7 @@
     border-radius: 20px;
     box-shadow: 4px 4px 30.8px 0px #0094863D;
     margin-top: 50px;
-    
+    cursor: pointer;
 }
 .slider_img {
     width: 100%;
@@ -20,7 +20,7 @@
     width: 30px;
     top: 50%;
     left: -60px;
-
+    cursor: pointer;
 }
 
 .promotions_swiper-button-next{
@@ -29,4 +29,5 @@
     width: 30px;
     right: -60px;
     top: 50%;
+    cursor: pointer;
 }

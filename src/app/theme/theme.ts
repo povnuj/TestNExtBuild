@@ -13,6 +13,21 @@ const roboto = Roboto({
     subsets: ['latin'],
     display: 'swap'
 });
+declare module '@mui/material/styles' {
+    interface TypographyVariants {
+        buttonGreenText: React.CSSProperties;
+    }
+  
+    interface TypographyVariantsOptions {
+        buttonGreenText?: React.CSSProperties;
+    }
+  }
+  
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    buttonGreenText: true;
+  }
+}
 
 declare module '@mui/material/styles'{
     interface Components {
@@ -24,6 +39,7 @@ declare module '@mui/material/styles'{
         ButtonStartImgComponent: {},
         CartButtonComponent: {},
         NavMobileMenuComponent: {},
+        GreenSquareButtonComponent: {},
     }
 }
 
@@ -44,6 +60,13 @@ export const theme = createTheme({
 
     typography:{
         fontFamily: roboto.style.fontFamily,
+   
+        buttonGreenText:{
+            fontSize: 27,
+            fontWeight: 500,
+            color: Colors.light,
+            textTransform: 'none',
+        },
     },
 
     components:{
@@ -167,6 +190,30 @@ export const theme = createTheme({
                     borderRadius: 20,
                     color: Colors.light,
                     textTransform: 'none',
+                    '&:hover': {
+                        backgroundColor: Colors.hoverSecondary,
+                        color: Colors.light
+                    }
+                }
+            }
+        },
+        GreenSquareButtonComponent:{
+            styleOverrides: {
+                root:{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: 250,
+                    width: 250,
+                    padding: 0,
+                    backgroundColor: Colors.secondary,
+                    borderRadius: 20,
+                    '& img': {
+                        
+                       // postion: 'absolute',
+                       // right: 0,
+                       // bottom: 0,
+                    },
                     '&:hover': {
                         backgroundColor: Colors.hoverSecondary,
                         color: Colors.light
