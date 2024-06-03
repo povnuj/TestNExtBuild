@@ -3,6 +3,7 @@ import "./globals.css";
 import ThemeRegistry from "./component/ThemeRegistry";
 import NavBar from "./component/Nav/NavBar";
 import { UiStatesProvider } from "@/context/Ui-States";
+import BreakpointsWrapper from "./component/wrappers/BreakpointsWrapper";
 
 export const metadata: Metadata = {
   title: "Головна | Лабораторія Діамеб",
@@ -14,21 +15,21 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children,}: Readonly<{ children: React.ReactNode; }>) {
+
   return (
     <html lang="en">
-      <UiStatesProvider>
-        <ThemeRegistry>
-          <body suppressHydrationWarning={true}>
-            <NavBar />
-            {children}
-          </body>
-        </ThemeRegistry>
-      </UiStatesProvider>
+          <ThemeRegistry>
+            <body suppressHydrationWarning={true}>
+              <UiStatesProvider>
+                <BreakpointsWrapper>
+                  <NavBar />
+                    {children}
+                </BreakpointsWrapper>
+              </UiStatesProvider>      
+            </body>
+          </ThemeRegistry>
+   
     </html>
   );
 }

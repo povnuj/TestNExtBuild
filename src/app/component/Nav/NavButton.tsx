@@ -1,6 +1,7 @@
 'use client'
 import { Colors } from "@/app/theme/colors";
 import { Box, Button, Container, styled } from "@mui/material";
+import { useRouter } from 'next/navigation'
 
 const NavButtonComponent = styled(Button,{
     name: 'NavButtonComponent',
@@ -17,8 +18,9 @@ interface NavButtonName{
 }
 
 export default function NavButton(props: NavButtonName) {
+    const route = useRouter();
     return (
-        <NavButtonComponent href={props.pageName.url} sx={
+        <NavButtonComponent  onClick={() =>route.push(props.pageName.url)}  sx={
             !props.pageName.active?{
                 background: 'transparent', 
                 color: Colors.dark, 

@@ -6,11 +6,11 @@ import { UiStatesType } from '@/Interfaces/Types';
 
 
 const UiStates = createContext<UiStateInterface>({
-    beakpoints: 'xs',
+    breakpoints: 'xl',
     setState: (newState) => {}
 });
 
-const UiStatesProvider:React.FC<PropsProviderInterface> = (props) =>{
+const UiStatesProvider: React.FC<PropsProviderInterface> = (props) =>{
 
     const setStateHandler = (state: UiStateInterface, action: ActionInterface) =>{
         switch (action.type) {
@@ -18,7 +18,7 @@ const UiStatesProvider:React.FC<PropsProviderInterface> = (props) =>{
             case UiStatesType.setBreackpoint:
                 return {
                     ...state,
-                    //listStates: {...state.listStates, isOpenAddForm: !state.listStates.isOpenAddForm}
+                    breakpoints: action.newState,
                 };
           
             default:
@@ -29,7 +29,7 @@ const UiStatesProvider:React.FC<PropsProviderInterface> = (props) =>{
     };
     
     let initialState: UiStateInterface = {
-        beakpoints: 'xs',
+        breakpoints: 'xl',
         setState: (type, newState) => {
             dispatch({type, newState});
         },

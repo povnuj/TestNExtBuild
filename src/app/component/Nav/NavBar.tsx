@@ -1,13 +1,13 @@
 'use client'
 import { Box, Container, styled } from "@mui/material";
 import NavMenu from "./NavMenu";
-import { theme } from "@/app/theme/theme";
 import BrandSection from "./BrandSection";
 import NavSearch from "./NavSearch";
 import ButtonStartImg from "../Buttons/ButtonStartImg";
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import CartButton from "../Buttons/CartButton";
-import next from "next";
+import { useContext, useState, useEffect } from "react";
+import { UiStates } from "@/context/Ui-States";
+import NavMobileMenu from "./NavMobileMenu";
 
 const NavBarComponent = styled(Box,{
     name: 'NavBarComponent',
@@ -20,6 +20,15 @@ const NavBarComponent = styled(Box,{
 }));
 
 export default function NavBar() {
+    const uiContext = useContext(UiStates);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(()=>{
+
+        if(uiContext.breakpoints === 'xs' || uiContext.breakpoints === 'sm') setIsMobile(true);
+        else setIsMobile(false);
+
+    },[uiContext.breakpoints]);
 
     const dummyDate = [
         {name: "Про лабораторію", url: "/pro-laboratoriyu"}, 
@@ -38,23 +47,40 @@ export default function NavBar() {
         color: '',
         img: '/assets/ico/Login.svg',
     }
+
+    const renderDesctopMenu = (
+        <Container maxWidth={uiContext.breakpoints}>
+
+            <Box display={'flex'} justifyContent={'space-between'} >
+                <BrandSection contactss={conatctsData} />
+                <Box display={'flex'} columnGap={'26px'} marginTop={'20px'}>
+                    <ButtonStartImg buttonProps={BtnProps} />
+                    <CartButton/>
+                </Box>
+            </Box>
+            <Box display={'flex'} justifyContent={'space-between'}>
+              <NavMenu buttonsName={dummyDate}/>
+              <NavSearch/>
+            </Box>
+        </Container>
+    );
+
+    const renderMobileMenu = (
+        <>
+          <Container maxWidth={uiContext.breakpoints}>
+            <BrandSection contactss={conatctsData} />
+          </Container>    
+          <Box>
+            <NavMobileMenu buttonsName={dummyDate}/>
+          </Box>
+        </>
+    );
+
     return (
         <Box>
-            <NavBarComponent>
-                <Container maxWidth='xl'>
-                    <Box display={'flex'} justifyContent={'space-between'} >
-                        <BrandSection contactss={conatctsData} />
-                        <Box display={'flex'} columnGap={'26px'} marginTop={'20px'}>
-                            <ButtonStartImg buttonProps={BtnProps} />
-                            <CartButton/>
-                        </Box>
-                    </Box>
-                    <Box display={'flex'} justifyContent={'space-between'}>
-                        <NavMenu buttonsName={dummyDate}/>
-                        <NavSearch/>
-                    </Box>
-                </Container>
-            </NavBarComponent>
+          <NavBarComponent>
+            { isMobile ? renderMobileMenu : renderDesctopMenu }
+          </NavBarComponent>
         </Box>
     );
 }

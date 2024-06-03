@@ -1,5 +1,6 @@
+import { Breakpoint } from "@mui/material";
 export interface UiStateInterface {
-    beakpoints: string,
+    breakpoints: Breakpoint,
     setState?: (type: string, newState: any ) => void;
 };
 

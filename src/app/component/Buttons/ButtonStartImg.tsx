@@ -2,6 +2,7 @@
 import { Colors } from "@/app/theme/colors";
 import { Box, Button, Container, styled } from "@mui/material";
 import Image from 'next/image'
+import { useRouter } from "next/navigation";
 
 const ButtonStartImgComponent = styled(Button,{
     name: 'ButtonStartImgComponent',
@@ -19,8 +20,9 @@ interface ButtonProps{
 }
 
 export default function ButtonStartImg(props: ButtonProps) {
+    const route = useRouter();
     return (
-        <ButtonStartImgComponent  href={props.buttonProps.action}>
+        <ButtonStartImgComponent onClick={() =>route.push(props.buttonProps.action)}>
             <Image src={props.buttonProps.img} alt="Logo" width={28} height={28} />
             {props.buttonProps.name}
         </ButtonStartImgComponent>

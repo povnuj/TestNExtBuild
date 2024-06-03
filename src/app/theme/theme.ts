@@ -23,6 +23,7 @@ declare module '@mui/material/styles'{
         NavSearchComponent: {},
         ButtonStartImgComponent: {},
         CartButtonComponent: {},
+        NavMobileMenuComponent: {},
     }
 }
 
@@ -30,9 +31,9 @@ declare module '@mui/material/styles'{
 export const theme = createTheme({ 
     breakpoints: {
         values: {
-          xs: 0,
-          sm: 600,
-          md: 900,
+          xs: 350,
+          sm: 900,
+          md: 1000,
           lg: 1200,
           xl: 1536,
         },
@@ -69,6 +70,20 @@ export const theme = createTheme({
             }
           }
         },
+
+        NavMobileMenuComponent: {
+            styleOverrides: {
+              root:{
+                  with: "100%",
+                  //maxWidth: 786,
+                  //minWidth: 775,
+                 // marginRight: 20,
+                  height: 56,
+                  backgroundColor: Colors.secondary,
+                //   borderRadius: 20
+              }
+            }
+          },
         
         NavButtonComponent:{
           styleOverrides: {
@@ -98,6 +113,7 @@ export const theme = createTheme({
                 marginTop: 4,
                 fontSize: 16,
                 color: Colors.grey,
+               
                   //backgroundColor: Colors.primary
               }
             }

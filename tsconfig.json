@@ -33,7 +33,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/pro-laboratoriyu/loading.jsx",
-    "build/types/**/*.ts"
+    "build/types/**/*.ts",
+    "dist/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

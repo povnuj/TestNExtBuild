@@ -56,7 +56,7 @@ export default function NavSearch() {
     return (
             <NavSearchComponent>    
               <SearchIconWrapper>
-                <SearchIcon />
+                <SearchIcon sx={{color: `${Colors.dark} !important`}}/>
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Пошук…"
