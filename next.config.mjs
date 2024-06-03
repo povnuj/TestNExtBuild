@@ -5,7 +5,7 @@ const nextConfig = {
   swcMinify: true,
  
   output: 'standalone',
-  distDir: 'dist',
+  //distDir: 'dist',
  // output: 'export',
 
   images: {
