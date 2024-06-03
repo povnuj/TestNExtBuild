@@ -21,12 +21,17 @@ export default function Home() {
   return (
     <>
         <Container maxWidth={uiContext.breakpoints}>
+          <section>
           <MainBannerSwiper /> 
-          <Box display={'flex'} justifyContent={'space-between'} padding={'50px 0 83px 0'}>
-            { ListButtons.map(el =>
-              <GreenSquareButton key={el.text} buttonProps={el}/> 
-            )}
-          </Box>
+          { uiContext.breakpoints === 'xs'? '' :
+            <Box display={'flex'} justifyContent={'space-between'} columnGap={'20px'} padding={'50px 0 83px 0'} >
+              { ListButtons.map(el =>
+                <GreenSquareButton key={el.text} buttonProps={el}/> 
+              )}
+            </Box>
+          }
+          </section>
+
         </Container>
     </>   
    

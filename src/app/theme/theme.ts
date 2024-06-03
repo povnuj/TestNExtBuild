@@ -6,7 +6,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Colors } from "./colors";
-import { Padding } from "@mui/icons-material";
+import { Height, Padding } from "@mui/icons-material";
 
 const roboto = Roboto({
     weight: ['100', '300', '400', '500', '700', "900"],
@@ -64,8 +64,21 @@ export const theme = createTheme({
         buttonGreenText:{
             fontSize: 27,
             fontWeight: 500,
+            lineHeight: '32px',
             color: Colors.light,
             textTransform: 'none',
+            [createTheme().breakpoints.only('xl')]: {
+                // fontSize: 27,
+                // lineHeight: '32px',
+            },
+            [createTheme().breakpoints.only('lg')]: {
+                fontSize: 20,
+                lineHeight: '20px',
+            },
+            [createTheme().breakpoints.between('xs' , "lg")]: {
+                fontSize: 16,
+                lineHeight: '16px',
+            },
         },
     },
 
@@ -203,16 +216,41 @@ export const theme = createTheme({
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
+                    //width: '100%',
+                    //height: '100%',
                     height: 250,
                     width: 250,
+                    overflow: 'hidden',
                     padding: 0,
                     backgroundColor: Colors.secondary,
                     borderRadius: 20,
-                    '& img': {
-                        
-                       // postion: 'absolute',
-                       // right: 0,
-                       // bottom: 0,
+                    [createTheme().breakpoints.only("xl")]: {
+
+                    },
+                    [createTheme().breakpoints.only("lg")]: {
+                        height: 200,
+                        width: 200,
+                        '& img': {
+                            width: '100px',
+                            height: '125px',
+                        }
+                    },
+                    [createTheme().breakpoints.only('md')]: {
+                        height: 170,
+                        width: 170,
+                        '& img': {
+                            //display: 'none',
+                            width: '80px',
+                            height: '100px',
+                        }
+                    },
+                    [createTheme().breakpoints.between('xs', 'md')]: {
+                        display: 'none',
+                        '& img': {
+                            //display: 'none',
+                            width: '80px',
+                            height: '100px',
+                        }
                     },
                     '&:hover': {
                         backgroundColor: Colors.hoverSecondary,

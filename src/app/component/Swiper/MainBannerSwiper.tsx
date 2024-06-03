@@ -28,7 +28,7 @@ export default function MainBannerSwiper(){
     <Box position={'relative'}>
       <Swiper
         className={css.main_baner_swiper}
-        spaceBetween={30}
+        spaceBetween={0}
         centeredSlides={true}
         ref={swiperRef}
         loop={true}

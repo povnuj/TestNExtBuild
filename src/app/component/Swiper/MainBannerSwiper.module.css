@@ -20,8 +20,9 @@
     width: 30px;
     top: 50%;
     left: -60px;
-    cursor: pointer;
+    cursor: pointer;   
 }
+
 
 .promotions_swiper-button-next{
     position: absolute;
@@ -30,4 +31,10 @@
     right: -60px;
     top: 50%;
     cursor: pointer;
+}
+
+@media screen and (max-width: 990px)  {
+    .promotions_swiper-button-prev , .promotions_swiper-button-next{
+        display: none;
+    }
 }
