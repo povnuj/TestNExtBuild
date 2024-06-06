@@ -13,6 +13,9 @@ const roboto = Roboto({
     subsets: ['latin'],
     display: 'swap'
 });
+
+let theme = createTheme();
+
 declare module '@mui/material/styles' {
     interface TypographyVariants {
         buttonGreenText: React.CSSProperties;
@@ -40,18 +43,19 @@ declare module '@mui/material/styles'{
         CartButtonComponent: {},
         NavMobileMenuComponent: {},
         GreenSquareButtonComponent: {},
+        ContainerComponent: {},
+        ContainerGBtnComponent: {},
     }
 }
 
-
-export const theme = createTheme({ 
+theme = createTheme(theme,{ 
     breakpoints: {
         values: {
           xs: 350,
           sm: 900,
           md: 1000,
-          lg: 1200,
-          xl: 1536,
+          lg: 1340,
+          xl: 1748,
         },
     },
     palette:{
@@ -67,15 +71,12 @@ export const theme = createTheme({
             lineHeight: '32px',
             color: Colors.light,
             textTransform: 'none',
-            [createTheme().breakpoints.only('xl')]: {
-                // fontSize: 27,
-                // lineHeight: '32px',
-            },
-            [createTheme().breakpoints.only('lg')]: {
+   
+            [theme.breakpoints.down('xl')]: {
                 fontSize: 20,
                 lineHeight: '20px',
             },
-            [createTheme().breakpoints.between('xs' , "lg")]: {
+            [theme.breakpoints.between('xs' , "lg")]: {
                 fontSize: 16,
                 lineHeight: '16px',
             },
@@ -83,12 +84,76 @@ export const theme = createTheme({
     },
 
     components:{
+        ContainerGBtnComponent: {
+            styleOverrides: {
+                root:{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    columnGap: '20px',
+                    padding: '50px 0 83px 0', 
+                    [theme.breakpoints.between('xs' , "md")]: {
+                        display: 'none',
+                    },
+                }
+            }
+        },
+        GreenSquareButtonComponent:{
+            styleOverrides: {
+                root:{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: 250,
+                    width: 250,
+                    overflow: 'hidden',
+                    padding: 0,
+                    backgroundColor: Colors.secondary,
+                    borderRadius: 20,
+                    [theme.breakpoints.only('lg')]: {
+                        height: 200,
+                        width: 200,
+                        '& img': {
+                            width: '100px',
+                            height: '125px',
+                        }
+                    },
+                   [theme.breakpoints.only('md')]: {
+                       height: 140,
+                       width: 140,
+                       '& img': {
+                           width: '60px',
+                           height: '80px',
+                       }
+                       
+                   },
+                    '&:hover': {
+                        backgroundColor: Colors.hoverSecondary,
+                        color: Colors.light
+                    }
+                }
+            }
+        },
+
+        ContainerComponent: {
+            styleOverrides: {
+                root:{
+                    paddingLeft: '75px !important',
+                    paddingRight: '75px !important',
+                    [theme.breakpoints.between('xs', 'md')]: {
+                       
+                        paddingLeft: '25px !important',
+                        paddingRight: '25px !important',
+                    },
+                }
+            }
+        },
+
         NavBarComponent: {
             styleOverrides: {
               root:{
                   with: "100%",
                   height: 250,
-                  backgroundColor: Colors.primary
+                  backgroundColor: Colors.primary,
               }
             }
         },
@@ -97,12 +162,14 @@ export const theme = createTheme({
           styleOverrides: {
             root:{
                 with: "100%",
-                maxWidth: 786,
-                minWidth: 775,
+                minWidth: 803,
                 marginRight: 20,
                 height: 40,
                 backgroundColor: Colors.light,
-                borderRadius: 20
+                borderRadius: 20,
+                [theme.breakpoints.only("md")]: {
+                    minWidth: 683,
+                },
             }
           }
         },
@@ -130,8 +197,14 @@ export const theme = createTheme({
                   borderRadius: 20,
                   fontSize: 20,
                   fontWeight: 400,
+                  lineHeight: '23px',
                   color: Colors.light,
                   textTransform: 'none',
+                  [theme.breakpoints.only("md")]: {
+                    fontSize: 16,
+                    fontWeight: 400,
+                    lineHeight: '18px',
+                },
                   '&:hover': {
                       backgroundColor: Colors.secondary,
                       color: Colors.light
@@ -210,57 +283,13 @@ export const theme = createTheme({
                 }
             }
         },
-        GreenSquareButtonComponent:{
-            styleOverrides: {
-                root:{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    //width: '100%',
-                    //height: '100%',
-                    height: 250,
-                    width: 250,
-                    overflow: 'hidden',
-                    padding: 0,
-                    backgroundColor: Colors.secondary,
-                    borderRadius: 20,
-                    [createTheme().breakpoints.only("xl")]: {
-
-                    },
-                    [createTheme().breakpoints.only("lg")]: {
-                        height: 200,
-                        width: 200,
-                        '& img': {
-                            width: '100px',
-                            height: '125px',
-                        }
-                    },
-                    [createTheme().breakpoints.only('md')]: {
-                        height: 170,
-                        width: 170,
-                        '& img': {
-                            //display: 'none',
-                            width: '80px',
-                            height: '100px',
-                        }
-                    },
-                    [createTheme().breakpoints.between('xs', 'md')]: {
-                        display: 'none',
-                        '& img': {
-                            //display: 'none',
-                            width: '80px',
-                            height: '100px',
-                        }
-                    },
-                    '&:hover': {
-                        backgroundColor: Colors.hoverSecondary,
-                        color: Colors.light
-                    }
-                }
-            }
-        },
+        
     },
 
 
 
 }); 
+
+export {
+    theme
+}

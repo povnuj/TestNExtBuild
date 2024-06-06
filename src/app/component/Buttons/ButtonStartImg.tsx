@@ -13,7 +13,7 @@ const ButtonStartImgComponent = styled(Button,{
 interface ButtonProps{
     buttonProps: {
         name: string,
-        action: string, 
+        url: string, 
         color: string,
         img: string,
     }
@@ -22,7 +22,7 @@ interface ButtonProps{
 export default function ButtonStartImg(props: ButtonProps) {
     const route = useRouter();
     return (
-        <ButtonStartImgComponent onClick={() =>route.push(props.buttonProps.action)}>
+        <ButtonStartImgComponent onClick={() =>route.push(props.buttonProps.url)}>
             <Image src={props.buttonProps.img} alt="Logo" width={28} height={28} />
             {props.buttonProps.name}
         </ButtonStartImgComponent>

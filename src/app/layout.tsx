@@ -3,7 +3,6 @@ import "./globals.css";
 import ThemeRegistry from "./component/ThemeRegistry";
 import NavBar from "./component/Nav/NavBar";
 import { UiStatesProvider } from "@/context/Ui-States";
-import BreakpointsWrapper from "./component/wrappers/BreakpointsWrapper";
 
 export const metadata: Metadata = {
   title: "Головна | Лабораторія Діамеб",
@@ -22,12 +21,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <ThemeRegistry>
         <body suppressHydrationWarning={true}>
           <UiStatesProvider>
-            <BreakpointsWrapper>
               <NavBar />
-              <>
                 {children}
-              </>
-            </BreakpointsWrapper>
           </UiStatesProvider>      
         </body>
       </ThemeRegistry>

@@ -18,7 +18,6 @@ interface Buttons{
     }[];
 }
 
-
 export default function NavMenu(props: Buttons) {
     const path = usePathname();
      ///set active by routeName

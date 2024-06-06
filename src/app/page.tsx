@@ -4,38 +4,24 @@ import { Box, Breakpoint, Container, Typography } from "@mui/material";
 import { UiStates } from "@/context/Ui-States";
 import { UiStatesType } from "@/Interfaces/Types";
 import MainBannerSwiper from "./component/Swiper/MainBannerSwiper";
-import GreenSquareButton from "./component/Buttons/GreenSquareButton";
+import ContainerComp from "./component/Conatiners/ContainerComp";
+import ContainerGBtn from "./component/Conatiners/ContainerGBtn";
 
 
 export default function Home() {
   const uiContext = useContext(UiStates);
-  const ListButtons = [
-    {text: "Отримати результати", url: '/', img: '/assets/ico/results.svg'},
-    {text: "Програма лояльності", url: '/', img: '/assets/ico/results.svg'},
-    {text: "Акції", url: '/', img: '/assets/ico/results.svg'},
-    {text: "Виїзд на дім", url: '/', img: '/assets/ico/results.svg'},
-    {text: "Аналізи дітям", url: '/', img: '/assets/ico/results.svg'},
-  ]
+
   
 
   return (
     <>
-        <Container maxWidth={uiContext.breakpoints}>
-          <section>
-            <MainBannerSwiper /> 
-            { uiContext.breakpoints === 'xs'? '' :
-              <Box display={'flex'} justifyContent={'space-between'} columnGap={'20px'} padding={'50px 0 83px 0'} >
-                { ListButtons.map(el =>
-                  <GreenSquareButton key={el.text} buttonProps={el}/> 
-                )}
-              </Box>
-            }
-          </section>
-          <section>
-            
-          </section>
+      <ContainerComp>
+      <section>
+        <MainBannerSwiper /> 
+        <ContainerGBtn />
+      </section>
+      </ContainerComp>
 
-        </Container>
     </>   
    
   );

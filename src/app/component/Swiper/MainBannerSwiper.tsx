@@ -4,12 +4,22 @@ import  { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import css from './MainBannerSwiper.module.css'
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { Box } from '@mui/material';
-
+import { UiStates } from '@/context/Ui-States';
+// import useMediaQuery, { UseMediaQueryOptions } from "@mui/material/useMediaQuery";
+ import { useTheme } from '@mui/material/styles';
+import { useRouter } from 'next/navigation';
 
 export default function MainBannerSwiper(){
   const swiperRef = useRef<any | null>(null);
+  const uiContext = useContext(UiStates);
+   const theme = useTheme();
+   const route = useRouter();
+  // const options: UseMediaQueryOptions = {
+  //     noSsr: true, 
+  //   };
+  
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -25,7 +35,7 @@ export default function MainBannerSwiper(){
 
   return (
     <>
-    <Box position={'relative'}>
+    <Box position={'relative'} >
       <Swiper
         className={css.main_baner_swiper}
         spaceBetween={0}
@@ -47,15 +57,17 @@ export default function MainBannerSwiper(){
         //   onSlideChange={() => console.log('slide change')}
         //   onSwiper={(swiper) => console.log(swiper)}
         >
-        <SwiperSlide>
-          <Image className={css.slider_img} src='/assets/baners/apysu.png' alt="Baner" width={1598} height={550} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image className={css.slider_img} src='/assets/baners/apysu.png' alt="Baner" width={1598} height={550} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image className={css.slider_img} src='/assets/baners/apysu.png' alt="Baner" width={1598} height={550} />
-        </SwiperSlide>
+        { uiContext.mainPage.bannerSection.slides.map(slide => 
+          <SwiperSlide key={slide.name} onClick={()=> route.push(slide.url)}>
+            <Image 
+            className={css.slider_img} 
+            src={slide.img} 
+            alt="Baner" 
+            sizes={`(max-width: ${theme.breakpoints.values.md}px) 850px, (max-width: ${theme.breakpoints.values.lg}px) 1142px, 1598px`}
+            width={1598} 
+            height={550} />
+          </SwiperSlide>
+        )}
         </Swiper>
       
         <div className={css["promotions_swiper-button-prev"]} onClick={handlePrev}>

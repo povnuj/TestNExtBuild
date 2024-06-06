@@ -2,17 +2,13 @@
 import { Typography, Container } from "@mui/material";
 import { UiStates } from "@/context/Ui-States";
 import { useContext } from "react";
-import MainBannerSwiper from "../component/Swiper/MainBannerSwiper";
-import GreenSquareButton from "../component/Buttons/GreenSquareButton";
+import ContainerComp from "../component/Conatiners/ContainerComp";
 
 export default function ProLaboratoriyuPage() {
-    const uiContext = useContext(UiStates);
-    console.log("ProLaboratoriyuPage","================================",uiContext.breakpoints);
+    // const uiContext = useContext(UiStates);
     return (
-        <Container maxWidth={uiContext.breakpoints}>
-            <Typography variant="h2"> Pro Laboratoriyu</Typography>
-            {/* <MainBannerSwiper />
-          <GreenSquareButton />  */}
-        </Container>
+      <ContainerComp>
+        <Typography variant="h1"> ContactsPage</Typography>
+      </ContainerComp>
     );
 }

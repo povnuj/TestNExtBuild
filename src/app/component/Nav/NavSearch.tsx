@@ -40,18 +40,6 @@ export default function NavSearch() {
             padding: '0 15px',
             height: 30,
         },
-        // '& .MuiInputBase-input': {
-          //padding: theme.spacing(1, 1, 1, 0),
-          //background: Colors.primary,
-          // vertical padding + font size from searchIcon
-         // paddingLeft: 10,
-         // transition: theme.transitions.create('width'),
-         // width: '100%',
-        //   [theme.breakpoints.up('xl')]: {
-        //     maxWidth: 325,
-        //     height: 30,
-        //   },
-        // },
       }));
     return (
             <NavSearchComponent>    
