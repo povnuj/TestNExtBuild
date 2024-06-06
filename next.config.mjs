@@ -56,7 +56,7 @@ const nextConfig = {
          },
          {
            key: 'Content-Security-Policy',
-           value: "default-src 'self'; font-src 'self' data: https://fonts.gstatic.com;",
+           value: "default-src 'self'; font-src 'self' 'unsafe-inline'",
          },
          {
            key: 'X-Content-Type-Options',
