@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-import CompressionPlugin from 'compression-webpack-plugin';
+//import CompressionPlugin from 'compression-webpack-plugin';
 
 const nextConfig = {
   swcMinify: true,
@@ -9,40 +9,42 @@ const nextConfig = {
   distDir: 'dist',
   output: 'export',
 
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'diameb.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'test-og-next.netlify.app',
-        pathname: '/**',
-      },
-    ],
-    formats: ['image/avif', 'image/webp'],
-  },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'diameb.com',
+  //       pathname: '/**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: 'test-og-next.netlify.app',
+  //       pathname: '/**',
+  //     },
+  //   ],
+  //   formats: ['image/avif', 'image/webp'],
+  // },
 
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false; // Виключення модуля 'fs' на клієнтській стороні
-    }
-  // Додавання компресії Brotli
-    config.plugins.push(new CompressionPlugin({
-      filename: '[path][base].br',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: { level: 11 },
-      threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: false,
-    }));
-  return config;
-  },
+  // webpack: (config, { isServer }) => {
+  //   if (!isServer) {
+  //     config.resolve.fallback.fs = false; // Виключення модуля 'fs' на клієнтській стороні
+  //   }
+  // // Додавання компресії Brotli
+  //   config.plugins.push(new CompressionPlugin({
+  //     filename: '[path][base].br',
+  //     algorithm: 'brotliCompress',
+  //     test: /\.(js|css|html|svg)$/,
+  //     compressionOptions: { level: 11 },
+  //     threshold: 10240,
+  //     minRatio: 0.8,
+  //     deleteOriginalAssets: false,
+  //   }));
+  // return config;
+  // },
   
-  async headers() {
+
+ //Оптимізація кешування і служби доставки контенту
+   async headers() {
     return [
       {
         source: '/(.*)',
