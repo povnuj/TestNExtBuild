@@ -5,8 +5,9 @@ const nextConfig = {
   swcMinify: true,
  
   output: 'standalone',
-  //distDir: 'dist',
-  //output: 'export',
+  
+  distDir: 'dist',
+  output: 'export',
 
   // images: {
   //   remotePatterns: [
