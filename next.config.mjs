@@ -44,36 +44,36 @@ const nextConfig = {
   // },
   
 
- // Оптимізація кешування і служби доставки контенту
-  async headers() {
-   return [
-     {
-       source: '/(.*)',
-       headers: [
-         {
-           key: 'Cache-Control',
-           value: 'public, max-age=31536000, immutable', 
-         },
-         {
-           key: 'Content-Security-Policy',
-           value: "default-src 'self'; style-src 'self' 'sha256-2uTFchZEiDYkeBhZBDOVHNgB/zzonsoN7VJ+tsSJlpI=';",
-         },
-         {
-           key: 'X-Content-Type-Options',
-           value: 'nosniff',
-         },
-         {
-           key: 'X-Frame-Options',
-           value: 'DENY',
-         },
-         {
-           key: 'X-XSS-Protection',
-           value: '1; mode=block',
-         },
-       ],
-     },
-   ];
-  },
+//  // Оптимізація кешування і служби доставки контенту
+//   async headers() {
+//    return [
+//      {
+//        source: '/(.*)',
+//        headers: [
+//          {
+//            key: 'Cache-Control',
+//            value: 'public, max-age=31536000, immutable', 
+//          },
+//          {
+//            key: 'Content-Security-Policy',
+//            value: "default-src 'self'; style-src 'self' 'sha256-2uTFchZEiDYkeBhZBDOVHNgB/zzonsoN7VJ+tsSJlpI=';",
+//          },
+//          {
+//            key: 'X-Content-Type-Options',
+//            value: 'nosniff',
+//          },
+//          {
+//            key: 'X-Frame-Options',
+//            value: 'DENY',
+//          },
+//          {
+//            key: 'X-XSS-Protection',
+//            value: '1; mode=block',
+//          },
+//        ],
+//      },
+//    ];
+//   },
   env: {
     
   },
