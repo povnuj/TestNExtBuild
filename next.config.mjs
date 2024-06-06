@@ -42,9 +42,7 @@ const nextConfig = {
   return config;
   },
   
-
- //Оптимізація кешування і служби доставки контенту
-   async headers() {
+  async headers() {
     return [
       {
         source: '/(.*)',
