@@ -7,7 +7,7 @@ const nextConfig = {
   output: 'standalone',
   
   //output: 'export',
-  distDir: 'dist',
+  //distDir: 'dist',
 
   // images: {
   //   remotePatterns: [
