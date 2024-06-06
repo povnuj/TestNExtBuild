@@ -56,7 +56,7 @@ const nextConfig = {
          },
          {
            key: 'Content-Security-Policy',
-           value: "default-src 'self'; font-src 'self' 'unsafe-inline'",
+           value: "default-src 'self'; style-src 'self' 'sha256-2uTFchZEiDYkeBhZBDOVHNgB/zzonsoN7VJ+tsSJlpI=';",
          },
          {
            key: 'X-Content-Type-Options',
