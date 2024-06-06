@@ -4,9 +4,9 @@
 const nextConfig = {
   swcMinify: true,
  
-  //output: 'standalone',
+  output: 'standalone',
   
-  output: 'export',
+  //output: 'export',
   distDir: 'dist',
 
   // images: {
