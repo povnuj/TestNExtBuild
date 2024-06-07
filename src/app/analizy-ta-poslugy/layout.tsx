@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 
+
 export const metadata: Metadata = {
-  title: "Про лабораторію | Лабораторія Діамеб",
+  title: "Аналізи та послуги | Лабораторія Діамеб",
   description: "Медична лабораторія “ДІАМЕБ” – це сучасна діагностична лабораторія з понад 10-річним досвідом роботи.",
   
   openGraph: {
-    title: 'Лабораторія Діамеб',
+    title: 'Аналізи та послуги',
     description: 'Медична лабораторія “ДІАМЕБ” – це сучасна діагностична лабораторія з понад 10-річним досвідом роботи.',
   }
 };
 
-export default function ProLaboratoriyuLayout({
+export default function AnalizyTaPoslugyLayout({
   children
 }: Readonly<{
   children: React.ReactNode;

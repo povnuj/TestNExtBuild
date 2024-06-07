@@ -30,11 +30,8 @@ export default function MainBannerSwiper(){
     }
   };
 
-  //const importImage = (src: string) => require(`/assets/baners/${src}`).default;
 
   return (
-    <>
-  
     <Box position={'relative'} >
       <Swiper
         className={css.main_baner_swiper}
@@ -59,7 +56,6 @@ export default function MainBannerSwiper(){
         >
         { uiContext.mainPage.bannerSection.slides.map(slide => 
           <SwiperSlide key={slide.name} onClick={()=> route.push(slide.url)}>
-            
             <Image 
             className={css.slider_img} 
             src={slide.img} 
@@ -70,9 +66,8 @@ export default function MainBannerSwiper(){
             
           </SwiperSlide>
         )} 
-
         </Swiper>
-      
+
         <div className={css["promotions_swiper-button-prev"]} onClick={handlePrev}>
           <Image src='/assets/ico/left_arrow.svg' alt="arrow" width={27} height={23} />  
         </div>
@@ -80,7 +75,5 @@ export default function MainBannerSwiper(){
           <Image src='/assets/ico/right_arrow.svg' alt="arrow" width={27} height={23} />
         </div>
     </Box>
-   
-  </>
   );
 };

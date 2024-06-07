@@ -13,13 +13,10 @@ const ContainerGBtnComponent = styled(Box,{
     
 }));
 
-
-
 export default function ContainerGBtn() {
   const uiContext = useContext(UiStates);
     const route = useRouter();
 
-    console.log(uiContext.mainPage.bannerSection)
     return (
       <ContainerGBtnComponent>
         { uiContext.mainPage.bannerSection.greenButtons.map(el =>
