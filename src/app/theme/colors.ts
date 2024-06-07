@@ -1,4 +1,3 @@
-import { grey } from "@mui/material/colors";
 
 export const Colors = {
     primary: '#E9F8F7',
