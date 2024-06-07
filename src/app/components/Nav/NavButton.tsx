@@ -23,16 +23,16 @@ export default function NavButton(props: NavButtonName) {
     // onClick={() =>route.push(props.pageName.url)}
     return (
         <Link href={props.pageName.url}>
-        <NavButtonComponent  sx={
-            !props.pageName.active?{
-                background: 'transparent', 
-                color: Colors.dark, 
-                '&:hover':{background: 'transparent', 
-                color: Colors.dark
-            }}:{}}
-        >
-            {props.pageName.name}
-        </NavButtonComponent>
+          <NavButtonComponent  sx={
+              !props.pageName.active?{
+                  background: 'transparent', 
+                  color: Colors.dark, 
+                  '&:hover':{background: 'transparent', 
+                  color: Colors.dark
+              }}:{}}
+          >
+              {props.pageName.name}
+          </NavButtonComponent>
         </Link>
     );
 }
