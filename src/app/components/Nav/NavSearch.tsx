@@ -1,9 +1,8 @@
 'use client'
 import { Colors } from "@/app/theme/colors";
-//import { AccountCircle, Padding, Search } from "@mui/icons-material";
 import { Box, Container, FormControl, Input, InputAdornment, styled, alpha } from "@mui/material";
-//import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import Image from "next/image";
 
 const NavSearchComponent = styled(Box, {
     name: 'NavSearchComponent',
@@ -44,7 +43,7 @@ export default function NavSearch() {
     return (
             <NavSearchComponent>    
               <SearchIconWrapper>
-                {/* <SearchIcon sx={{color: `${Colors.dark} !important`}}/> */}
+                <Image src='/assets/ico/search.svg' alt="Logo" width={18} height={18} />
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Пошук…"

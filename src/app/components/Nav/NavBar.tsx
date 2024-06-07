@@ -29,13 +29,7 @@ export default function NavBar() {
          noSsr: true, 
     };
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    const listMenu =[
-      {name: "Про лабораторію", url: "/pro-laboratoriyu"}, 
-      {name: "Аналізи та послуги", url: "/analizy-ta-poslugy"}, 
-      {name: "Акції", url: "/actions"}, 
-      {name: "Співпраця", url: "/Cooperation"},
-      {name: "Контакти", url: "/kontakty"}
-    ]
+
 
     const renderDesctopMenu = (
         <ContainerComp>
@@ -47,7 +41,7 @@ export default function NavBar() {
             </Box>
           </Box>
           <Box display={'flex'} justifyContent={'space-between'}>
-            <NavMenu buttonsName={listMenu}/>
+            <NavMenu buttonsName={uiContext.nav.menu}/>
             <NavSearch/>
           </Box>
         </ContainerComp>
@@ -59,7 +53,7 @@ export default function NavBar() {
             <BrandSection contactss={uiContext.nav.contacts} />
           </ContainerComp>    
           <Box>
-            <NavMobileMenu buttonsName={listMenu}/>
+            <NavMobileMenu buttonsName={uiContext.nav.menu}/>
           </Box>
         </>
     );

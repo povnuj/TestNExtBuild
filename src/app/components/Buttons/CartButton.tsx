@@ -16,7 +16,7 @@ export default function CartButton() {
     const route = useRouter();
     return (
         <CartButtonComponent onClick={() =>route.push('/cart')}>
-            <Image src='/assets/ico/Cart.svg' alt="Logo" width={27} height={23} />
+            <Image src='/assets/ico/Cart.svg' alt="btn_logo" width={27} height={23} />
         </CartButtonComponent>
     );
 }

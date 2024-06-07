@@ -9,6 +9,7 @@ export default function ProLaboratoriyuPage() {
     return (
       <ContainerComp>
         <Typography variant="h1"> ContactsPage</Typography>
+        
       </ContainerComp>
     );
 }

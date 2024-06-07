@@ -23,7 +23,7 @@ export default function ButtonStartImg(props: ButtonProps) {
     const route = useRouter();
     return (
         <ButtonStartImgComponent onClick={() =>route.push(props.buttonProps.url)}>
-            <Image src={props.buttonProps.img} alt="Logo" width={28} height={28} />
+            <Image src={props.buttonProps.img} alt="sbtn_Logo" width={28} height={28} />
             {props.buttonProps.name}
         </ButtonStartImgComponent>
     );
