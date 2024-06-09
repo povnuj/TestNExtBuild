@@ -11,7 +11,6 @@ const GreenSquareButtonComponent = styled(Button,{
     slot: 'root',
 })(({}) => ({
 
-
 }));
 
 interface ButtonProps{
@@ -25,7 +24,7 @@ interface ButtonProps{
 export default function GreenSquareButton(props: ButtonProps) {
     
     return (
-        <Link href={props.buttonProps.url}>
+        <Link href={props.buttonProps.url} style={{textDecoration: 'none'}}>
             <GreenSquareButtonComponent>
                 <Typography  display={'flex'} width={'100%'} justifyContent={'flex-start'} textAlign={'start'} padding={'20px 30px 0 30px'} variant="buttonGreenText">{props.buttonProps.name}</Typography>
                 <Box width={'100%'} height={'auto'} display={'flex'} justifyContent={'flex-end'} alignItems={'flex-end'}>

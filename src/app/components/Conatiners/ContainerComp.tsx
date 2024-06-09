@@ -25,15 +25,12 @@ export default function ContainerComp({
     const theme = useTheme();
     const options: UseMediaQueryOptions = {
         noSsr: true, 
-      };
+    };
     const isXs = useMediaQuery(theme.breakpoints.between('xs', 'sm'));
     const isSm = useMediaQuery(theme.breakpoints.between('sm', 'md'));
     const isMd = useMediaQuery(theme.breakpoints.between('md', 'lg'));
     const isLg = useMediaQuery(theme.breakpoints.between('lg', 'xl'));
     const isXl = useMediaQuery(theme.breakpoints.up('xl'));
-    
-
-
 
     return (
     <>

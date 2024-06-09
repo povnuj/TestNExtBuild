@@ -15,6 +15,7 @@ const UiStates = createContext<UiStateInterface>({
       ],
       contacts:{
         location: 'Чорновола, 97',
+        locationUrl: 'https://maps.app.goo.gl/5fSx6WqqnQCRJqVH9', 
         phone: '+380 67 200 5457'
       },
       buttons:{
@@ -38,6 +39,22 @@ const UiStates = createContext<UiStateInterface>({
             {name: "Виїзд на дім", url: '/', img: '/assets/ico/results.svg'},
             {name: "Аналізи дітям", url: '/', img: '/assets/ico/results.svg'},
         ]
+      },
+      servicesSection: {
+        slides: [{
+          type: 'Пакетне дослідженя',
+          code: 'Код дослідження №964',
+          title: 'Краса та здоров\'я волосся',
+          description: '(Загальний аналіз крові (автоматизований з повною ручною лейкоформулою + ШОЕ); Тиреотропний гормон (ТТГ); Трийодтиронін вільний (Т3В); Тироксин вільний (Т4В); 25-ОН вітамін D загальний; Тестостеронзагальний (ТеЗ); Феритин; Цинк)',
+          price: 1697,
+          oldPrice: 1897,
+          promotion: false,
+          dueDate: 'сьогодні'
+        }],
+        buttons: {
+          btn1: {name: 'Популярні', active: true},
+          btn2: {name: 'Нові', active: false},
+        },
       }
     },
     setState: (newState) => {}
@@ -46,6 +63,7 @@ const UiStates = createContext<UiStateInterface>({
 const UiStatesProvider: React.FC<PropsProviderInterface> = (props) =>{
 
     const setStateHandler = (state: UiStateInterface, action: ActionInterface) =>{
+      console.log("set")
         switch (action.type) {
             
             case UiStatesType.setBreackpoint:
@@ -53,7 +71,16 @@ const UiStatesProvider: React.FC<PropsProviderInterface> = (props) =>{
                     ...state,
                     breakpoints: action.newState,
                 };
-          
+
+            case UiStatesType.setMainBtnServicesState:
+              console.log("uiContext")
+              console.log(action.newState)
+              state.mainPage.servicesSection.buttons.btn1.active = action.newState.btn1;
+              state.mainPage.servicesSection.buttons.btn2.active = action.newState.btn2;
+              return {
+                  ...state,
+              };
+      
             default:
             return state;
         };
@@ -73,6 +100,7 @@ const UiStatesProvider: React.FC<PropsProviderInterface> = (props) =>{
           ],
           contacts:{
             location: 'Чорновола, 97',
+            locationUrl: 'https://maps.app.goo.gl/5fSx6WqqnQCRJqVH9', 
             phone: '+380 67 200 5457'
           },
           buttons:{
@@ -86,6 +114,13 @@ const UiStatesProvider: React.FC<PropsProviderInterface> = (props) =>{
           bannerSection: {
             slides:[],
             greenButtons: []
+          },
+          servicesSection: {
+            buttons: {
+              btn1: {name: 'Популярні', active: true},
+              btn2: {name: 'Нові', active: false},
+            },
+            slides: []
           }
         },
         setState: (type, newState) => {

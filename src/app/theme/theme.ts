@@ -2,12 +2,7 @@
 import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 
-// import '@fontsource/roboto/300.css';
-// import '@fontsource/roboto/400.css';
-// import '@fontsource/roboto/500.css';
-// import '@fontsource/roboto/700.css';
 import { Colors } from "./colors";
-//import { Height, Padding } from "@mui/icons-material";
 
 const roboto = Roboto({
     weight: ['100', '300', '400', '500', '700', "900"],
@@ -20,16 +15,25 @@ let theme = createTheme();
 declare module '@mui/material/styles' {
     interface TypographyVariants {
         buttonGreenText: React.CSSProperties;
+        servicesSliderText1: React.CSSProperties;
+        servicesSliderText2: React.CSSProperties;
+        SlidersTitle: React.CSSProperties;
     }
   
     interface TypographyVariantsOptions {
         buttonGreenText?: React.CSSProperties;
-    }
+        servicesSliderText1?: React.CSSProperties;
+        servicesSliderText2?: React.CSSProperties;
+        SlidersTitle?: React.CSSProperties;
   }
-  
+} 
+
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     buttonGreenText: true;
+    servicesSliderText1: true;
+    servicesSliderText2: true;
+    SlidersTitle: true;
   }
 }
 
@@ -46,6 +50,12 @@ declare module '@mui/material/styles'{
         GreenSquareButtonComponent: {},
         ContainerComponent: {},
         ContainerGBtnComponent: {},
+        PhoneButtonComponent: {},
+        SwitcherContainerComponent: {},
+        SwitcherButtonComponent: {},
+        MainServicesComponent: {},
+        PriceButtonBlackComponent: {},
+        PriceButtonGreenComponent: {},
     }
 }
 
@@ -65,26 +75,165 @@ theme = createTheme(theme,{
 
     typography:{
         fontFamily: 'Roboto, sans-serif',
-   
+        
+        
+        SlidersTitle: {
+            fontFamily: 'Roboto, sans-serif',
+            fontSize: 24,
+            fontWeight: 700,
+            lineHeight: '28px',
+            // display: '-webkit-box',
+            // overflowY: 'hidden',
+            // '-webkit-line-clamp': '1',
+            // '-webkit-box-orient': 'vertical',
+            // wordBreak: 'break-word',
+        },
+
+        servicesSliderText1: {
+            fontFamily: 'Roboto, sans-serif',
+            fontSize: 12,
+            fontWeight: 400,
+            lineHeight: '14px',
+            '& span': {
+                color: Colors.secondary
+            }
+        },
+
+        servicesSliderText2: {
+            fontFamily: 'Roboto, sans-serif',
+            fontSize: 15,
+            fontWeight: 400,
+            lineHeight: '18px',
+            color: Colors.grey,
+            // display: '-webkit-box',
+            // overflowY: 'hidden',
+            // '-webkit-line-clamp': '4',
+            // '-webkit-box-orient': 'vertical',
+            // wordBreak: 'break-word',
+        },
+
         buttonGreenText:{
             fontSize: 27,
             fontWeight: 500,
             lineHeight: '32px',
             color: Colors.light,
+            textDecoration: 'none',
             textTransform: 'none',
    
             [theme.breakpoints.down('xl')]: {
                 fontSize: 20,
                 lineHeight: '20px',
+                
             },
             [theme.breakpoints.between('xs' , "lg")]: {
                 fontSize: 16,
                 lineHeight: '16px',
+                
             },
         },
     },
 
     components:{
+        PriceButtonGreenComponent: {
+            styleOverrides: {
+                root:{
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  fontFamily: 'Roboto,Thin, sans-serif',
+                  fontSize: 30,
+                  fontWeight: 700,
+                  padding: '0 18px 15px',
+                  backgroundColor: Colors.secondary,
+                  color: Colors.light,
+                  borderRadius: 50,
+                  border: `1px solid transparent`,
+                  '&:hover': {
+                    backgroundColor: Colors.light,
+                    color: Colors.dark,
+                    border: `1px solid ${Colors.dark}`, 
+                }
+                }
+            }
+        },
+
+        PriceButtonBlackComponent: {
+            styleOverrides: {
+                root:{
+                  fontFamily: 'Roboto,Thin, sans-serif',
+                  fontSize: 30,
+                  fontWeight: 700,
+                  padding: '0 18px',
+                  backgroundColor: Colors.dark,
+                  color: Colors.light,
+                  borderRadius: 50,
+                  border: `1px solid transparent`,
+                  '&:hover': {
+                    backgroundColor: Colors.light,
+                    color: Colors.dark,
+                    border: `1px solid ${Colors.dark}`, 
+                }
+                }
+            }
+        },
+
+        MainServicesComponent: {
+            styleOverrides: {
+                root:{
+                    width: '100%',
+                    backgroundColor: Colors.primary,
+                    padding: '41px 0 144px 0',
+                }
+            }
+        },
+
+        SwitcherButtonComponent: {
+            styleOverrides: {
+                root:{
+                    height: 60,
+                    padding: '0 25px',
+                    backgroundColor: Colors.secondary,
+                    borderRadius: 83,
+                    fontSize: 36,
+                    fontWeight: 700,
+                    lineHeight: '23px',
+                    color: Colors.light,
+                    textTransform: 'none', 
+                    '&:hover': {
+                        backgroundColor: Colors.secondary,
+                        color: Colors.light
+                    }
+                }
+            }
+        },
+
+        SwitcherContainerComponent: {
+            styleOverrides: {
+                root:{
+                    width: 'fit-content',
+                    //maxWidth: 400,
+                    //marginRight: '-20px',
+                    padding: 0,
+                    height: 60,
+                    backgroundColor: Colors.light,
+                    border: `1px solid ${Colors.secondary}`,
+                    borderRadius: 83,
+                }
+            }
+        },
+        PhoneButtonComponent: {
+            styleOverrides: {
+                root:{
+                    padding: 0,
+                    color: Colors.grey,
+                    textTransform: 'none',
+                    '& img': {
+                        marginRight: 5,
+                    }
+                }
+            }
+        },
+
         ContainerGBtnComponent: {
             styleOverrides: {
                 root:{
@@ -152,7 +301,7 @@ theme = createTheme(theme,{
         NavBarComponent: {
             styleOverrides: {
               root:{
-                  with: "100%",
+                  width: "100%",
                   height: 250,
                   backgroundColor: Colors.primary,
               }
@@ -162,14 +311,14 @@ theme = createTheme(theme,{
         NavMenuComponent: {
           styleOverrides: {
             root:{
-                with: "100%",
-                minWidth: 803,
+                width: 'fit-content',
+                minWidth: 790,
                 marginRight: 20,
                 height: 40,
                 backgroundColor: Colors.light,
                 borderRadius: 20,
                 [theme.breakpoints.only("md")]: {
-                    minWidth: 683,
+                    minWidth: 581,
                 },
             }
           }
@@ -205,6 +354,7 @@ theme = createTheme(theme,{
                     fontSize: 16,
                     fontWeight: 400,
                     lineHeight: '18px',
+                    padding: '0 10px',
                 },
                   '&:hover': {
                       backgroundColor: Colors.secondary,
@@ -217,7 +367,7 @@ theme = createTheme(theme,{
         BrandSectionComponent: {
             styleOverrides: {
               root:{
-                with: "100%",
+                width: "100%",
                 maxHeight: 68,
                 marginBottom: 38,
                 marginTop: 4,

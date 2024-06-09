@@ -5,12 +5,11 @@ import BrandSection from "./BrandSection";
 import NavSearch from "./NavSearch";
 import ButtonStartImg from "../Buttons/ButtonStartImg";
 import CartButton from "../Buttons/CartButton";
-import { useContext, useState, useEffect } from "react";
-import { UiStates } from "@/context/Ui-States";
 import NavMobileMenu from "./NavMobileMenu";
 import ContainerComp from "../Conatiners/ContainerComp";
 import useMediaQuery, { UseMediaQueryOptions } from "@mui/material/useMediaQuery";
 import { useTheme } from '@mui/material/styles';
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
 
 const NavBarComponent = styled(Box,{
     name: 'NavBarComponent',
@@ -23,25 +22,25 @@ const NavBarComponent = styled(Box,{
 }));
 
 export default function NavBar() {
-    const uiContext = useContext(UiStates);
     const theme = useTheme();
     const options: UseMediaQueryOptions = {
-         noSsr: true, 
+      noSsr: true, 
     };
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const nav = useAppSelector((state) => state.nav)
 
 
     const renderDesctopMenu = (
         <ContainerComp>
           <Box display={'flex'} justifyContent={'space-between'} >
-            <BrandSection contactss={uiContext.nav.contacts} />
+            <BrandSection contactss={nav.contacts} />
             <Box display={'flex'} columnGap={'26px'} marginTop={'20px'}>
-              <ButtonStartImg buttonProps={uiContext.nav.buttons} />
+              <ButtonStartImg buttonProps={nav.buttons} />
               <CartButton/>
             </Box>
           </Box>
           <Box display={'flex'} justifyContent={'space-between'}>
-            <NavMenu buttonsName={uiContext.nav.menu}/>
+            <NavMenu buttonsName={nav.menu}/>
             <NavSearch/>
           </Box>
         </ContainerComp>
@@ -50,10 +49,10 @@ export default function NavBar() {
     const renderMobileMenu = (
         <>
           <ContainerComp>
-            <BrandSection contactss={uiContext.nav.contacts} />
+            <BrandSection contactss={nav.contacts} />
           </ContainerComp>    
           <Box>
-            <NavMobileMenu buttonsName={uiContext.nav.menu}/>
+            <NavMobileMenu buttonsName={nav.menu}/>
           </Box>
         </>
     );

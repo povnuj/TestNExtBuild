@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import GreenSquareButton from "../Buttons/GreenSquareButton";
 import { useContext } from "react";
 import { UiStates } from "@/context/Ui-States";
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
 
 const ContainerGBtnComponent = styled(Box,{
     name: 'ContainerGBtnComponent',
@@ -15,13 +16,13 @@ const ContainerGBtnComponent = styled(Box,{
 
 export default function ContainerGBtn() {
   const uiContext = useContext(UiStates);
-    const route = useRouter();
+  const buttons = useAppSelector((state) => state.mainPage.bannerSection.greenButtons)
 
-    return (
-      <ContainerGBtnComponent>
-        { uiContext.mainPage.bannerSection.greenButtons.map(el =>
-          <GreenSquareButton key={el.name} buttonProps={el}  /> 
-        )}
-      </ContainerGBtnComponent>
-    );
+  return (
+    <ContainerGBtnComponent>
+      { buttons.map(el =>
+        <GreenSquareButton key={el.name} buttonProps={el}  /> 
+      )}
+    </ContainerGBtnComponent>
+  );
 }
