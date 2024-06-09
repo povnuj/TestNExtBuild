@@ -1,6 +1,5 @@
 'use client'
 import { Colors } from "@/app/theme/colors";
-import { UiStates } from "@/context/Ui-States";
 import { UiStateInterface } from "@/Interfaces/Interfces";
 import { MainButtonTypes, UiStatesType } from "@/Interfaces/Types";
 import { Box, Button, Container, styled } from "@mui/material";

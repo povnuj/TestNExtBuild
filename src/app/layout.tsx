@@ -5,7 +5,6 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import {theme} from "./theme/theme";
 import NavBar from "./components/Nav/NavBar";
-// import { UiStatesProvider } from "@/context/Ui-States";
 import StoreProvider from "@/store/StoreProvider";
 
 export const metadata: Metadata = {
@@ -29,12 +28,10 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
       <AppRouterCacheProvider>
         <ThemeProvider theme={theme}>
-          {/* <UiStatesProvider> */}
           <StoreProvider>
             <NavBar />
             {children}
           </StoreProvider>
-          {/* </UiStatesProvider> */}
         </ThemeProvider>
       </AppRouterCacheProvider>
       </body>

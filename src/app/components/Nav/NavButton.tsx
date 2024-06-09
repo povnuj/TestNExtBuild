@@ -19,7 +19,6 @@ interface NavButtonName{
 }
 
 export default function NavButton(props: NavButtonName) {
-    const route = useRouter();
     // onClick={() =>route.push(props.pageName.url)}
     return (
         <Link href={props.pageName.url}>

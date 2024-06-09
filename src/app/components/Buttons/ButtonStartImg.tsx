@@ -21,7 +21,6 @@ interface ButtonProps{
 }
 
 export default function ButtonStartImg(props: ButtonProps) {
-    const route = useRouter();
     return (
         <Link href={props.buttonProps.url}>
             <ButtonStartImgComponent>

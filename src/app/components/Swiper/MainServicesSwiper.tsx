@@ -7,7 +7,6 @@ import 'swiper/css/free-mode';
 import Image from 'next/image';
 import { useContext, useEffect, useRef , useState} from 'react';
 import { Box, Typography } from '@mui/material';
-import { UiStates } from '@/context/Ui-States';
 // import useMediaQuery, { UseMediaQueryOptions } from "@mui/material/useMediaQuery";
 import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/navigation';
@@ -18,11 +17,11 @@ import PriceButtonGreen from '../Buttons/PriceButtonGreen';
 
 export default function MainServicesSwiper(){
   const swiperRef = useRef<any | null>(null);
-  const uiContext = useContext(UiStates);
   const theme = useTheme();
-  const isPopular = useAppSelector((state) => state.mainPage!.servicesSection.buttons.btn1.active)
-  const slides =  isPopular ? useAppSelector((state) => state.mainPage.servicesSection.popularSlides)
-                            : useAppSelector((state) => state.mainPage.servicesSection.newSlides);   
+  const isPopular = useAppSelector((state) => state.mainPage!.servicesSection.buttons.btn1.active);
+  const popularSLides = useAppSelector((state) => state.mainPage.servicesSection.popularSlides);
+  const newSlides = useAppSelector((state) => state.mainPage.servicesSection.newSlides);
+  const slides =  isPopular ? popularSLides : newSlides;   
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
