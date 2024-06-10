@@ -17,14 +17,14 @@ declare module '@mui/material/styles' {
         buttonGreenText: React.CSSProperties;
         servicesSliderText1: React.CSSProperties;
         servicesSliderText2: React.CSSProperties;
-        SlidersTitle: React.CSSProperties;
+        title1: React.CSSProperties;
     }
   
     interface TypographyVariantsOptions {
         buttonGreenText?: React.CSSProperties;
         servicesSliderText1?: React.CSSProperties;
         servicesSliderText2?: React.CSSProperties;
-        SlidersTitle?: React.CSSProperties;
+        title1?: React.CSSProperties;
   }
 } 
 
@@ -33,7 +33,7 @@ declare module '@mui/material/Typography' {
     buttonGreenText: true;
     servicesSliderText1: true;
     servicesSliderText2: true;
-    SlidersTitle: true;
+    title1: true;
   }
 }
 
@@ -47,6 +47,8 @@ declare module '@mui/material/styles'{
         ButtonStartImgComponent: {},
         CartButtonComponent: {},
         NavMobileMenuComponent: {},
+        FooBarComponent: {},
+        FooListComponent: {},
         GreenSquareButtonComponent: {},
         ContainerComponent: {},
         ContainerGBtnComponent: {},
@@ -56,6 +58,12 @@ declare module '@mui/material/styles'{
         MainServicesComponent: {},
         PriceButtonBlackComponent: {},
         PriceButtonGreenComponent: {},
+        SSliderContainerComponent: {},
+        SSliderPromotionContComp: {},
+        MainArticlesComponent: {},
+        ASliderContainerComponent: {},
+        TransperedGreenButtonComponent: {},
+        FooterContactsComponent: {},
     }
 }
 
@@ -75,9 +83,15 @@ theme = createTheme(theme,{
 
     typography:{
         fontFamily: 'Roboto, sans-serif',
+
+        h3:{
+            fontSize: 24,
+            fontWeight: 700,
+            lineHeight: '28px',
+        },
         
         
-        SlidersTitle: {
+        title1: {
             fontFamily: 'Roboto, sans-serif',
             fontSize: 24,
             fontWeight: 700,
@@ -128,12 +142,183 @@ theme = createTheme(theme,{
             [theme.breakpoints.between('xs' , "lg")]: {
                 fontSize: 16,
                 lineHeight: '16px',
-                
             },
         },
     },
 
     components:{
+
+        FooterContactsComponent: {
+            styleOverrides: {
+                root: {
+                    width: '100%',
+                    maxWidth: '380px',
+                    '& .foo_contacts': {
+                        display: 'flex',
+                        '& a': {
+                            textDecoration: 'none', 
+                            color: Colors.dark,
+                            fontFamily: 'Roboto,Thin, sans-serif',
+                        },
+                    }
+                   
+                }
+            }
+        },
+
+        FooListComponent: {
+            styleOverrides: {
+                root: {
+                    fontSize: '18px', 
+                    fontWeight: '400', 
+                    lineHeight: '22px',
+                    '& ul': {
+                        marginTop: '18px',
+                        listStyle: 'none',
+                        '& a': {
+                            textDecoration: 'none', 
+                            color: Colors.dark,
+                        }, 
+                    },
+
+                }
+            }
+        },
+
+        FooBarComponent: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: Colors.primary,
+                    padding: '50px 0',
+                    '& .foo_container': {
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        justifyContent: 'space-between',
+                    },
+
+                }
+            }
+        },
+
+        TransperedGreenButtonComponent: {
+            styleOverrides: {
+                root: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '0 13px',
+                    border: `1px solid ${Colors.secondary}`,
+                    borderRadius: '83px',
+                    fontSize: '15px',
+                    color: Colors.secondary,
+                    textTransform: 'none',
+                }
+            }
+        },
+
+        ASliderContainerComponent: {
+            styleOverrides: {
+                root: {
+                    maxWidth: '380px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    '& a': {
+                        marginTop: '57px', 
+                        marginRight: '0',
+                        marginLeft: 'auto',
+                    },
+                }
+            }
+        },
+        
+        MainArticlesComponent: {
+            styleOverrides: {
+                root: {
+                    padding: '41px 0',
+                }
+            }
+        },
+
+        SSliderPromotionContComp: {
+            styleOverrides: {
+                root:{
+                    position: 'relative',
+                    width: '100%',
+                    maxWidth: '515px',
+                    minHeight: '250px',
+                    borderRadius: '25px',
+                    backgroundColor: Colors.light,
+                    boxShadow: '4px 4px 8px 0px #0000001A',
+                    padding: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    [theme.breakpoints.only('xs')]: {
+                        '& img': {
+                            width: '65px',
+                            height: 'auto',
+                        },
+                        '& .s_btn_cont': {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            '& .s_btn_due_date': {
+                                width: '100%',
+                            },
+                            '& a': {
+                                marginTop: '30px',
+                                '& .s_green_btn_new_price': {
+                                    fontSize: '22px',
+                                    '& svg': {
+                                        width: 14,
+                                        height: 'auto',
+                                    },
+                                },
+                                '& .s_green_btn_old_price': {
+                                    fontSize: '18px',
+                                },
+
+                            }
+                        },
+                    },
+                }
+            }
+        },
+
+        SSliderContainerComponent: {
+            styleOverrides: {
+                root:{
+                    position: 'relative',
+                    width: '100%',
+                    maxWidth: '515px',
+                    minHeight: '250px',
+                    borderRadius: '25px',
+                    backgroundColor: Colors.light,
+                    boxShadow: '4px 4px 8px 0px #0000001A',
+                    padding: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    [theme.breakpoints.only('xs')]: {
+                        '& .s_btn_cont': {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            '& .s_btn_due_date': {
+                                width: '100%',
+                            },
+                            '& a': {
+                                marginTop: '30px',
+                                '& button': {
+                                    fontSize: '22px',
+                                    '& svg': {
+                                        width: 14,
+                                        height: 'auto',
+                                    },
+                                },
+                            }
+                        },
+                    },
+                }
+            }
+        },
+
         PriceButtonGreenComponent: {
             styleOverrides: {
                 root:{
@@ -202,7 +387,28 @@ theme = createTheme(theme,{
                     '&:hover': {
                         backgroundColor: Colors.secondary,
                         color: Colors.light
-                    }
+                    },
+                    [theme.breakpoints.down('xl')]: {
+                        fontSize: 28,
+                        lineHeight: '20px',
+                        padding: '0 20px',
+                        height: 50,
+                        
+                    },
+                    [theme.breakpoints.down('lg')]: {
+                        fontSize: 24,
+                        lineHeight: '16px',
+                        padding: '0 18px',
+                        height: 45,
+                        
+                    },
+                    [theme.breakpoints.down('sm')]: {
+                        fontSize: 16,
+                        lineHeight: '10px',
+                        padding: '0 10px',
+                        height: 35,
+                        
+                    },
                 }
             }
         },
@@ -214,7 +420,7 @@ theme = createTheme(theme,{
                     //maxWidth: 400,
                     //marginRight: '-20px',
                     padding: 0,
-                    height: 60,
+                    height: 'auto',
                     backgroundColor: Colors.light,
                     border: `1px solid ${Colors.secondary}`,
                     borderRadius: 83,

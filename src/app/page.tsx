@@ -7,6 +7,7 @@ import ContainerGBtn from "./components/Conatiners/ContainerGBtn";
 import SwitcherContainer from "./components/Buttons/Switchers/SwitcherContainer";
 import MainServicesContainer from "./components/Conatiners/MainServicesContainer";
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
+import MainArticlesContainer from "./components/Conatiners/MainArticlesContainer";
 
 export default function Home() {
   const nav = useAppSelector((state) => state.mainPage)
@@ -17,7 +18,7 @@ export default function Home() {
         <ContainerGBtn />
       </ContainerComp>
       <MainServicesContainer />
-
+      <MainArticlesContainer />
     </>   
    
   );

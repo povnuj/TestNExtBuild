@@ -4,6 +4,7 @@ import SwitcherContainer from "../Buttons/Switchers/SwitcherContainer";
 import ContainerComp from "./ContainerComp";
 import MainServicesSwiper from "../Swiper/MainServicesSwiper";
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
+import { MainButtonTypes } from "@/Interfaces/Types";
 
 const MainServicesComponent = styled(Box,{
     name: 'MainServicesComponent',
@@ -17,7 +18,7 @@ export default function MainServicesContainer() {
   return (
     <MainServicesComponent>
       <ContainerComp>
-        <SwitcherContainer buttons={buttons} contextSrction='servicesSection' />
+        <SwitcherContainer buttons={buttons} contextSection={MainButtonTypes.IsServices} />
         <MainServicesSwiper />
       </ContainerComp>
     </MainServicesComponent>

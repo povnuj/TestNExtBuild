@@ -6,6 +6,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import {theme} from "./theme/theme";
 import NavBar from "./components/Nav/NavBar";
 import StoreProvider from "@/store/StoreProvider";
+import FooBar from "./components/Footer/FooBar";
 
 export const metadata: Metadata = {
   title: "Головна | Лабораторія Діамеб",
@@ -31,6 +32,7 @@ export default function RootLayout({
           <StoreProvider>
             <NavBar />
             {children}
+            <FooBar />
           </StoreProvider>
         </ThemeProvider>
       </AppRouterCacheProvider>

@@ -4,4 +4,5 @@ export enum UiStatesType{
 };
 export enum MainButtonTypes{
     IsServices = "isServices",
+    IsArticles = "isArticles",
 }

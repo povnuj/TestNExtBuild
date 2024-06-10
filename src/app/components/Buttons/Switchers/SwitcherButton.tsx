@@ -4,7 +4,7 @@ import { UiStateInterface } from "@/Interfaces/Interfces";
 import { MainButtonTypes, UiStatesType } from "@/Interfaces/Types";
 import { Box, Button, Container, styled } from "@mui/material";
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
-import { serviceBtn } from "@/store/mainPageStore";
+import { serviceBtn, articleBtn} from "@/store/mainPageStore";
 
 const SwitcherButtonComponent = styled(Button,{
     name: 'SwitcherButtonComponent',
@@ -25,7 +25,8 @@ export default function SwitcherButton(props: BtnProps) {
     //dispatch()
     //const buttons = useAppSelector((state) => state.mainP)
     const clicHandler = () => {
-        if(!(props.button.btn1?.active || props.button.btn2?.active) && props.button.type === MainButtonTypes.IsServices)dispatch(serviceBtn())
+        if(!(props.button.btn1?.active || props.button.btn2?.active) && props.button.type === MainButtonTypes.IsServices)dispatch(serviceBtn());
+        if(!(props.button.btn1?.active || props.button.btn2?.active) && props.button.type === MainButtonTypes.IsArticles)dispatch(articleBtn());
             //// reducer
 
     };

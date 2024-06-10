@@ -3,12 +3,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import navReducer  from './NavStore';
 import mainPageReducer from './mainPageStore'
+import footerReducer from './footerStore'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
         nav: navReducer,
         mainPage: mainPageReducer,
+        footer: footerReducer,
     },
   })
 }

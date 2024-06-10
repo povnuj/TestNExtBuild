@@ -19,6 +19,48 @@ export interface UiStateInterface {
         img: string;
       };
     };
+    footer:{
+      about:{
+        title: string;
+        list: {
+          id: string;
+          name: string;
+          url: string;
+        }[];
+      };
+      patient:{
+        title: string;
+        list: {
+          id: string;
+          name: string;
+          url: string;
+        }[];
+      };
+      сooperation:{
+        title: string;
+        list: {
+          id: string;
+          name: string;
+          url: string;
+        }[];
+      };
+      contscts:{
+        phones: {
+          name: string;
+          tel1: string;
+          tel2: string;
+          tel3: string;
+        };
+        social: {
+          name: string;
+          instagram: string;
+          facebook: string;
+          gmap: string;
+          viber: string;
+          telegram: string;
+        };
+      };  
+    };
     mainPage: {
       bannerSection: {
         slides:{
@@ -37,7 +79,8 @@ export interface UiStateInterface {
           btn1: {name: string; active: boolean};
           btn2: {name: string; active: boolean};
         };
-        popularSlides: {
+        slides: {
+          id: string;
           type: string;
           code: string;
           title: string;
@@ -48,18 +91,21 @@ export interface UiStateInterface {
           dueDate: string;
           url: string;
         }[];
-        newSlides: {
-          type: string;
-          code: string;
-          title: string;
-          description: string;
-          price: number;
-          oldPrice: number;
-          promotion: boolean;
-          dueDate: string;
-          url: string;
-        }[];
-      }
+
+      };
+        articleSection:{
+          buttons: {
+            btn1: {name: string; active: boolean};
+            btn2: {name: string; active: boolean};
+          };
+          slides: {
+            id: string;
+            title: string;
+            description: string;
+            isNew: boolean;
+            url: string;
+          }[];
+        };
     },
     setState?: (type: string, newState: any ) => void;
 };

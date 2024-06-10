@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import  { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
-import css from './MainServicesSwiper.module.css'
+import css from './MainArticlesSwiper.module.css'
 import 'swiper/css/free-mode';
 import Image from 'next/image';
 import { useContext, useEffect, useRef , useState} from 'react';
@@ -10,16 +10,15 @@ import { Box, Typography } from '@mui/material';
 // import useMediaQuery, { UseMediaQueryOptions } from "@mui/material/useMediaQuery";
 import { useTheme } from '@mui/material/styles';
 import { useAppSelector, useAppDispatch } from '@/store/hooks'
-import SSliderContainer from '../Conatiners/ServicesContainers/SSliderContainer';
-import SSliderPromotionContainer from '../Conatiners/ServicesContainers/SSliderPromotionContainer';
+import ASliderContainer from '../Conatiners/ArticlesContainers/ASliderContainer';
 
-export default function MainServicesSwiper(){
+export default function MainArticlesSwiper(){
   const swiperRef = useRef<any | null>(null);
   const theme = useTheme();
-  const isPopular = useAppSelector((state) => state.mainPage!.servicesSection!.buttons.btn1.active);
-  const allSlides = useAppSelector((state) => state.mainPage.servicesSection.slides);
-  const promotoionSlides = useAppSelector((state) => state.mainPage.servicesSection.slides).filter(el => el.promotion);
-  const slides =  isPopular ? allSlides : promotoionSlides;   
+  const isNew = useAppSelector((state) => state.mainPage!.articleSection!.buttons.btn1.active);
+  const allSlides = useAppSelector((state) => state.mainPage.articleSection.slides);
+  const newSlides = useAppSelector((state) => state.mainPage.articleSection.slides).filter(el => el.isNew);
+  const slides =  isNew ? allSlides : newSlides;   
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -47,40 +46,40 @@ export default function MainServicesSwiper(){
       spaceBetween: 20
     },
     740: {
-      slidesPerView: 1.3,
+      slidesPerView: 1.5,
       spaceBetween: 20
     },
     [theme.breakpoints.values.sm]: {
-      slidesPerView: 1.5,
+      slidesPerView: 1.7,
       spaceBetween: 26
     },
     [theme.breakpoints.values.md]: {
-      slidesPerView: 2,
-      spaceBetween: 26
-    },
-    [theme.breakpoints.values.lg]: {
       slidesPerView: 2.5,
       spaceBetween: 26
     },
-    [theme.breakpoints.values.xl]: {
-      slidesPerView: 3,
+    [theme.breakpoints.values.lg]: {
+      slidesPerView: 3.5,
       spaceBetween: 26
+    },
+    [theme.breakpoints.values.xl]: {
+      slidesPerView: 4,
+      spaceBetween: 10
     }
   }
 
   return (
     <Box position={'relative'} >
       <Swiper
-        className={css.main_services_swiper}
-        spaceBetween={26}
-        slidesPerView={3}
+        className={css.main_articles_swiper}
         // centeredSlides={true}
+        slidesPerView={4}
+        spaceBetween={10}
         ref={swiperRef}
         loop={true}
         observer={true}
         navigation={{
-          nextEl: '.services_swiper-button-next',
-          prevEl: '.services_swiper-button-prev'
+          nextEl: '.articles_swiper-button-next',
+          prevEl: '.articles_swiper-button-prev'
         }}
         modules={[Autoplay, Pagination, Navigation]}
         breakpoints={breakpoints}
@@ -88,17 +87,15 @@ export default function MainServicesSwiper(){
         
         { slides.map(slide => 
           <SwiperSlide  className={css.slide} key={slide.id}>
-            {slide.promotion ? <SSliderPromotionContainer container={slide} /> 
-                             : <SSliderContainer container={slide}/>
-            }
+            <ASliderContainer container={slide} />
           </SwiperSlide>
         )} 
         </Swiper>
 
-        <div className={css["services_swiper-button-prev"]} onClick={handlePrev}>
+        <div className={css["articles_swiper-button-prev"]} onClick={handlePrev}>
           <Image src='/assets/ico/left_arrow.svg' alt="arrow" width={27} height={23} />  
         </div>
-        <div className={css["services_swiper-button-next"]} onClick={handleNext}>
+        <div className={css["articles_swiper-button-next"]} onClick={handleNext}>
           <Image src='/assets/ico/right_arrow.svg' alt="arrow" width={27} height={23} />
         </div>
     </Box>
